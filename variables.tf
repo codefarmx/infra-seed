@@ -13,7 +13,6 @@ variable "region" {
 variable "domain_name" {
   description = "The root domain name"
   type        = string
-  default     = "plantyourseed.io"
 }
 
 variable "ami_id" {
