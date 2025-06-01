@@ -10,10 +10,11 @@ variable "region" {
   default     = "us-east-1"
 }
 
-variable "domain_name" {
-  description = "The root domain name"
-  type        = string
-}
+# Disabled until a domain is acquired
+# variable "domain_name" {
+#   description = "The root domain name"
+#   type        = string
+# }
 
 variable "ami_id" {
   description = "Ec2 ami id"
