@@ -3,6 +3,7 @@
 
 # Terraform plan output files
 *.tfplan
+tfplan
 
 # Terraform variable files containing sensitive data
 *.tfvars
