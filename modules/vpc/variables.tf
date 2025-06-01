@@ -1,4 +1,9 @@
 variable "project_name" {
-  type        = string
   description = "Project name"
+  type        = string
+}
+
+variable "azs" {
+  description = "Availability zones"
+  type    = list(string)
 }
