@@ -26,21 +26,33 @@ module "nacl" {
   private_subnet_ids = module.vpc.private_subnet_ids
 }
 
+module "route53" {
+  source         = "./modules/route53"
+  project_name   = var.project_name
+  domain_name    = var.domain_name
+  root_record_ip = module.ec2.public_ip
+}
+
 module "ec2" {
   source       = "./modules/ec2"
   project_name = var.project_name
-  subnet_id    = module.vpc.public_subnet_id
   vpc_id       = module.vpc.vpc_id
+  subnet_id    = module.vpc.public_subnet_id
+  ami_id       = var.ami_id
 }
 
 module "s3" {
-  source       = "./modules/s3"
+  source       = "modules/s3"
   project_name = var.project_name
 }
 
 module "rds" {
-  source       = "./modules/rds"
-  project_name = var.project_name
-  subnet_ids   = module.vpc.private_subnet_ids
-  vpc_id       = module.vpc.vpc_id
+  source             = "./modules/rds"
+  project_name       = var.project_name
+  vpc_id             = module.vpc.vpc_id
+  subnet_ids         = module.vpc.private_subnet_ids
+  ec2_cidr_block     = "10.0.1.0/24"
+  db_name            = var.db_name
+  db_user            = var.db_user
+  db_password        = var.db_password
 }
