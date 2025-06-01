@@ -8,7 +8,7 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "subnet_ids" {
+variable "private_subnet_ids" {
   description = "Private subnet ids"
   type        = list(string)
 }
