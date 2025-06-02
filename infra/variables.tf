@@ -1,7 +1,11 @@
+variable "project_id" {
+  description = "Project unique id"
+  type        = string
+}
+
 variable "project_name" {
   description = "Project name"
   type        = string
-  default     = "planter"
 }
 
 variable "region" {
@@ -25,13 +29,11 @@ variable "ami_id" {
 variable "db_name" {
   type        = string
   description = "Database name"
-  default     = "planterdb"
 }
 
 variable "db_user" {
   type        = string
   description = "Database username"
-  default     = "admin"
 }
 
 variable "db_password" {
