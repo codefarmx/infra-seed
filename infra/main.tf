@@ -30,11 +30,13 @@ module "ec2" {
 
 module "s3" {
   source       = "./modules/s3"
+  project_id   = var.project_id
   project_name = var.project_name
 }
 
 module "rds" {
   source             = "./modules/rds"
+  project_id         = var.project_id
   project_name       = var.project_name
   vpc_id             = module.vpc.vpc_id
   private_subnet_ids = module.vpc.private_subnet_ids
