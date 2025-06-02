@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "website" {
-  bucket = "${var.project_name}-${var.project_id}-app"
+  bucket = "${var.project_name}-app-${var.project_id}"
 
   force_destroy = true
 

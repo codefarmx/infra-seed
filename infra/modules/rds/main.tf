@@ -34,7 +34,7 @@ resource "aws_security_group" "db_sg" {
 }
 
 resource "aws_db_instance" "main" {
-  identifier             = "${var.project_name}-${var.project_id}-rds"
+  identifier             = "${var.project_name}-rds-${var.project_id}"
   allocated_storage      = 20
   engine                 = "postgres"
   engine_version         = "15"
