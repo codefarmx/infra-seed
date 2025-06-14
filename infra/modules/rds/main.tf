@@ -1,15 +1,15 @@
 resource "aws_db_subnet_group" "main" {
-  name       = "${var.project_name}-db-subnet-group"
+  name       = "${var.application_name}-db-subnet-group"
   subnet_ids = var.private_subnet_ids
 
   tags = {
-    Name = "${var.project_name}-db-subnet-group"
+    Name = "${var.application_name}-db-subnet-group"
   }
 }
 
 resource "aws_security_group" "db_sg" {
-  name        = "${var.project_name}-rds-sg"
-  description = "${var.project_name} DB security group"
+  name        = "${var.application_name}-rds-sg"
+  description = "${var.application_name} DB security group"
   vpc_id      = var.vpc_id
 
   ingress {
@@ -29,12 +29,12 @@ resource "aws_security_group" "db_sg" {
   }
 
   tags = {
-    Name = "${var.project_name}-rds-sg"
+    Name = "${var.application_name}-rds-sg"
   }
 }
 
 resource "aws_db_instance" "main" {
-  identifier             = "${var.project_name}-rds-${var.project_id}"
+  identifier             = "${var.application_name}-rds-${var.application_id}"
   allocated_storage      = 20
   engine                 = "postgres"
   engine_version         = "15"
@@ -48,6 +48,6 @@ resource "aws_db_instance" "main" {
   db_subnet_group_name   = aws_db_subnet_group.main.name
 
   tags = {
-    Name = "${var.project_name}-rds"
+    Name = "${var.application_name}-rds"
   }
 }

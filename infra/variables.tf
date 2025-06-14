@@ -1,10 +1,10 @@
-variable "project_id" {
-  description = "Project unique id"
+variable "application_id" {
+  description = "Application unique id"
   type        = string
 }
 
-variable "project_name" {
-  description = "Project name"
+variable "application_name" {
+  description = "Application name"
   type        = string
 }
 

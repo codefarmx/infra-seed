@@ -1,9 +1,9 @@
 resource "aws_s3_bucket" "website" {
-  bucket        = "${var.project_name}-app-${var.project_id}"
+  bucket        = "${var.application_name}-app-${var.application_id}"
   force_destroy = true
 
   tags = {
-    Name = "${var.project_name}-app"
+    Name = "${var.application_name}-app"
   }
 }
 
@@ -16,8 +16,8 @@ resource "aws_s3_bucket_public_access_block" "public_access" {
 }
 
 resource "aws_cloudfront_origin_access_control" "oac" {
-  name                              = "${var.project_name}-oac"
-  description                       = "Origin access control for ${var.project_name} cloudfront access to s3"
+  name                              = "${var.application_name}-oac"
+  description                       = "Origin access control for ${var.application_name} cloudfront access to s3"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
@@ -68,7 +68,7 @@ resource "aws_cloudfront_distribution" "cdn" {
   }
 
   tags = {
-    Name = "${var.project_name}-cdn"
+    Name = "${var.application_name}-cdn"
   }
 
   depends_on = [

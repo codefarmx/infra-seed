@@ -1,5 +1,5 @@
-variable "project_name" {
-  description = "Project name"
+variable "application_name" {
+  description = "Application name"
   type        = string
 }
 

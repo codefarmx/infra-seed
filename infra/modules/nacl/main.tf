@@ -39,7 +39,7 @@ resource "aws_network_acl" "public" {
   }
 
   tags = {
-    Name = "${var.project_name}-nacl-public"
+    Name = "${var.application_name}-nacl-public"
   }
 }
 
@@ -66,6 +66,6 @@ resource "aws_network_acl" "private" {
   }
 
   tags = {
-    Name = "${var.project_name}-nacl-private"
+    Name = "${var.application_name}-nacl-private"
   }
 }

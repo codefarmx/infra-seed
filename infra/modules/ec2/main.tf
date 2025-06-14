@@ -1,6 +1,6 @@
 resource "aws_security_group" "ec2_sg" {
-  name        = "${var.project_name}-api-sg"
-  description = "${var.project_name} security group"
+  name        = "${var.application_name}-api-sg"
+  description = "${var.application_name} security group"
   vpc_id      = var.vpc_id
 
   ingress {
@@ -28,7 +28,7 @@ resource "aws_security_group" "ec2_sg" {
   }
 
   tags = {
-    Name = "${var.project_name}-ec2-sg"
+    Name = "${var.application_name}-ec2-sg"
   }
 }
 
@@ -40,6 +40,6 @@ resource "aws_instance" "api" {
   associate_public_ip_address = true
 
   tags = {
-    Name = "${var.project_name}-api"
+    Name = "${var.application_name}-api"
   }
 }
